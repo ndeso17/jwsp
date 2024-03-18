@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+  </head>
+  <body>
+    <h1><%= pageTitle %></h1>
+    <p><%= message %></p>
+
+    <% if (jadwalSholat) { %>
+    <h2>Jadwal Sholat</h2>
+    <p>Tanggal: <%= jadwalSholat.tanggal %></p>
+    <ul>
+      <li>Imsak: <%= jadwalSholat.imsak %></li>
+      <li>Subuh: <%= jadwalSholat.subuh %></li>
+      <li>Terbit: <%= jadwalSholat.terbit %></li>
+      <li>Dhuha: <%= jadwalSholat.dhuha %></li>
+      <li>Dzuhur: <%= jadwalSholat.dzuhur %></li>
+      <li>Ashar: <%= jadwalSholat.ashar %></li>
+      <li>Maghrib: <%= jadwalSholat.maghrib %></li>
+      <li>Isya: <%= jadwalSholat.isya %></li>
+    </ul>
+    <% } else { %>
+    <p>Tidak ada jadwal sholat.</p>
+    <% } %>
+  </body>
+</html>

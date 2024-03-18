@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+
+    <link rel="stylesheet" href="/Stylesheets/jadwalwaktusholat.css" />
+    <link rel="stylesheet" href="/Bootstrap/css/bootstrap.min.css" />
+  </head>
+  <body style="background: #2f363e">
+    <div class="container-fluid">
+      <div class="container mt-2">
+        <div class="row">
+          <div class="col d-flex justify-content-center align-items-center">
+            <div class="bungkus-jam-utama">
+              <div class="clock">
+                <div class="circle" id="sec" style="--clr: #04fc43">
+                  <i></i>
+                </div>
+                <div class="circle circle2" id="min" style="--clr: #fee800">
+                  <i></i>
+                </div>
+                <div class="circle circle3" id="hr" style="--clr: #ff105e">
+                  <i></i>
+                </div>
+
+                <% for (let i = 1; i <= 12; i++) { %>
+                <span style="--i: <%= i %>"><b><%= i %></b></span>
+                <% } %>
+              </div>
+              <div id="digital">
+                <div id="hours" style="--clr: #ff105e">00</div>
+                <div id="minutes" style="--clr: #fee800">00</div>
+                <div id="seconds" style="--clr: #04fc43">00</div>
+                <div id="zonawaktu">WIB</div>
+              </div>
+              <div id="countDown" style="margin-top: 5px; color: #fff">
+                <%= countdownStr %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" style="margin-top: 1%">
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+          <div class="col">
+            <div
+              class="p-2 border bg-dark justify-content-center align-items-center text-center"
+            >
+              <p>Alarm Sahur</p>
+              <div id="waktu-penting">
+                <div id="jam-sahur" style="--clr: #ff105e">
+                  <%= waktuAlarmSahur.jam %>
+                </div>
+                <div id="menit-sahur" style="--clr: #fee800">
+                  <%= waktuAlarmSahur.menit %>
+                </div>
+                <div id="zona-waktu">WIB</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="p-2 border bg-dark justify-content-center align-items-center text-center"
+            >
+              <p>Imsak</p>
+              <div id="waktu-penting">
+                <div id="jam-imsak" style="--clr: #ff105e">
+                  <%= waktuImsak.split(":")[0] %>
+                </div>
+                <div id="menit-imsak" style="--clr: #fee800">
+                  <%= waktuImsak.split(":")[1] %>
+                </div>
+                <div id="zona-waktu">WIB</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="p-2 border bg-dark justify-content-center align-items-center text-center"
+            >
+              <p>Shubuh</p>
+              <div id="waktu-penting">
+                <div id="jam-shubuh" style="--clr: #ff105e">
+                  <%= waktuSubuh.split(":")[0] %>
+                </div>
+                <div id="menit-shubuh" style="--clr: #fee800">
+                  <%= waktuSubuh.split(":")[1] %>
+                </div>
+                <div id="zona-waktu">WIB</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="p-2 border bg-dark justify-content-center align-items-center text-center"
+            >
+              <p>Terbit</p>
+              <div id="waktu-penting">
+                <div id="jam-terbit" style="--clr: #ff105e">
+                  <%= waktuTerbit.split(":")[0] %>
+                </div>
+                <div id="menit-terbit" style="--clr: #fee800">
+                  <%= waktuTerbit.split(":")[1] %>
+                </div>
+                <div id="zona-waktu">WIB</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="p-2 border bg-dark justify-content-center align-items-center text-center"
+            >
+              <p>Dhuha</p>
+              <div id="waktu-penting">
+                <div id="jam-dhuha" style="--clr: #ff105e">
+                  <%= waktuDhuha.split(":")[0] %>
+                </div>
+                <div id="menit-dhuha" style="--clr: #fee800">
+                  <%= waktuDhuha.split(":")[1] %>
+                </div>
+                <div id="zona-waktu">WIB</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="p-2 border bg-dark justify-content-center align-items-center text-center"
+            >
+              <p>Dzhuhur</p>
+              <div id="waktu-penting">
+                <div id="jam-dzuhur" style="--clr: #ff105e">
+                  <%= waktuDzuhur.split(":")[0] %>
+                </div>
+                <div id="menit-dzuhur" style="--clr: #fee800">
+                  <%= waktuDzuhur.split(":")[1] %>
+                </div>
+                <div id="zona-waktu">WIB</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="p-2 border bg-dark justify-content-center align-items-center text-center"
+            >
+              <p>Ashar</p>
+              <div id="waktu-penting">
+                <div id="jam-ashar" style="--clr: #ff105e">
+                  <%= waktuAshar.split(":")[0] %>
+                </div>
+                <div id="menit-ashar" style="--clr: #fee800">
+                  <%= waktuAshar.split(":")[1] %>
+                </div>
+                <div id="zona-waktu">WIB</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="p-2 border bg-dark justify-content-center align-items-center text-center"
+            >
+              <p>Buka Puasa</p>
+              <div id="waktu-penting">
+                <div id="jam-bukapuasa" style="--clr: #ff105e">
+                  <%= waktuBukaPuasa.split(":")[0] %>
+                </div>
+                <div id="menit-bukapuasa" style="--clr: #fee800">
+                  <%= waktuBukaPuasa.split(":")[1] %>
+                </div>
+                <div id="zona-waktu">WIB</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="p-2 border bg-dark justify-content-center align-items-center text-center"
+            >
+              <p>Maghrib</p>
+              <div id="waktu-penting">
+                <div id="jam-maghrib" style="--clr: #ff105e">
+                  <%= waktuMaghribStr.split(":")[0] %>
+                </div>
+                <div id="menit-maghrib" style="--clr: #fee800">
+                  <%= waktuMaghribStr.split(":")[1] %>
+                </div>
+                <div id="zona-waktu">WIB</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="p-2 border bg-dark justify-content-center align-items-center text-center"
+            >
+              <p>Isya</p>
+              <div id="waktu-penting">
+                <div id="jam-isya" style="--clr: #ff105e">
+                  <%= waktuIsya.split(":")[0] %>
+                </div>
+                <div id="menit-isya" style="--clr: #fee800">
+                  <%= waktuIsya.split(":")[1] %>
+                </div>
+                <div id="zona-waktu">WIB</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/JavaScripts/jadwalwaktusholat.js"></script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/Stylesheets/jamanalogdigital.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="clock">
+        <div class="circle" id="sec" style="--clr: #04fc43"><i></i></div>
+        <div class="circle circle2" id="min" style="--clr: #fee800">
+          <i></i>
+        </div>
+        <div class="circle circle3" id="hr" style="--clr: #ff105e"><i></i></div>
+
+        <% for (let i = 1; i <= 12; i++) { %>
+        <span style="--i: <%= i %>"><b><%= i %></b></span>
+        <% } %>
+      </div>
+
+      <div id="digital">
+        <div id="hours" style="--clr: #ff105e">00</div>
+        <div id="minutes" style="--clr: #fee800">00</div>
+        <div id="seconds" style="--clr: #04fc43">00</div>
+        <div id="zonawaktu">WIB</div>
+      </div>
+    </div>
+
+    <script>
+      setInterval(() => {
+        let day = new Date();
+
+        // Jam Analog
+        const deg = 6;
+        const hr = document.querySelector("#hr");
+        const min = document.querySelector("#min");
+        const sec = document.querySelector("#sec");
+        let hh = day.getHours() * 30;
+        let mm = day.getMinutes() * deg;
+        let ss = day.getSeconds() * deg;
+
+        hr.style.transform = `rotateZ(${hh + mm / 12}deg)`;
+        min.style.transform = `rotateZ(${mm}deg)`;
+        sec.style.transform = `rotateZ(${ss}deg)`;
+
+        // Jam Digital
+        let hours = document.querySelector("#hours");
+        let minutes = document.querySelector("#minutes");
+        let seconds = document.querySelector("#seconds");
+        let zonawaktu = document.querySelector("#zonawaktu");
+
+        let hour = day.getHours();
+        let minute = day.getMinutes();
+        let second = day.getSeconds();
+        let zonaAbbreviation = "";
+        let timezone = day.toLocaleTimeString("en-US", {
+          timeZoneName: "short",
+        });
+
+        if (timezone.includes("GMT+7")) {
+          zonaAbbreviation = "WIB";
+        } else if (timezone.includes("GMT+8")) {
+          zonaAbbreviation = "WITA";
+        } else if (timezone.includes("GMT+9")) {
+          zonaAbbreviation = "WIT";
+        }
+
+        hours.innerHTML = hour < 10 ? "0" + hour : hour;
+        minutes.innerHTML = minute < 10 ? "0" + minute : minute;
+        seconds.innerHTML = second < 10 ? "0" + second : second;
+        zonawaktu.innerHTML = zonaAbbreviation;
+      });
+    </script>
+  </body>
+</html>

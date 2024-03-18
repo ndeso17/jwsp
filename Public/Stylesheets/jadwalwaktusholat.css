@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.bungkus-jam-utama {
+  position: relative;
+  background: #2f363e;
+  border-radius: 20px;
+  border-top-right-radius: 225px;
+  border-top-left-radius: 225px;
+  box-shadow: 2.5px 12.5px 37.5px rgba(0, 0, 0, 0.75),
+    5px 5px 35px rgba(0, 0, 0, 0.25), inset 2.5px 2.5px 5px rgba(0, 0, 0, 0.5),
+    inset 2.5px 2.5px 10px rgba(255, 255, 255, 0.2),
+    inset -2.5px -2.5px 7.5px rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.clock {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  background: #2f363e;
+  border-radius: 50%;
+  box-shadow: 10px 50px 70px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+    inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.clock::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #2f363e;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  z-index: 100000;
+}
+
+.clock span {
+  position: absolute;
+  inset: 20px;
+  color: #fff;
+  text-align: center;
+  transform: rotate(calc(30deg * var(--i)));
+}
+
+.clock span b {
+  font-size: 1em;
+  opacity: 0.25;
+  font-weight: 600;
+  display: inline-block;
+  transform: rotate(calc(-30deg * var(--i)));
+}
+
+.circle {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 10;
+}
+
+.circle i {
+  position: absolute;
+  width: 4px;
+  height: 50%;
+  background: var(--clr);
+  opacity: 0.75;
+  transform-origin: bottom;
+  transform: scaleY(0.5);
+}
+
+.circle:nth-child(1) i {
+  width: 2px;
+}
+.circle:nth-child(2) i {
+  width: 4px;
+}
+
+.circle2 {
+  width: 200px;
+  height: 200px;
+  z-index: 9;
+}
+
+.circle3 {
+  width: 150px;
+  height: 150px;
+  z-index: 8;
+}
+
+.circle::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--clr);
+  box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
+}
+
+/* Digital Clock */
+#digital {
+  margin-top: -20px;
+  display: flex;
+  padding: 5px 10px;
+  font-size: 1em;
+  font-weight: 600;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+    inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+}
+
+#digital div {
+  position: relative;
+  width: 30px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--clr);
+}
+
+#digital div:nth-child(1)::after,
+#digital div:nth-child(2)::after {
+  content: ":";
+  position: absolute;
+  right: -4px;
+}
+
+#digital div:last-child {
+  font-size: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+#digital div:nth-child(2)::after {
+  animation: animate 1s steps(1) infinite;
+  -webkit-animation: animate 1s steps(1) infinite;
+}
+@keyframes animate {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Waktu Penting */
+#waktu-penting {
+  /*margin-bottom: 20px;
+  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20px;
+  padding: 5px 10px;
+  font-size: 1em;
+  font-weight: 600;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+    inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+}
+
+#waktu-penting div {
+  position: relative;
+  width: 30px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--clr);
+}
+
+#waktu-penting div:nth-child(1)::after {
+  content: ":";
+  position: absolute;
+  right: -2px;
+}
+
+#waktu-penting div:last-child {
+  font-size: 1em;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #7472ec;
+}
+
+p {
+  margin-top: -10px;
+  margin-bottom: -3px;
+  font-weight: 300;
+  color: #fff;
+}
+
+/* Di dalam file CSS */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.blink {
+  animation: blink 1s infinite; /* Menjalankan animasi kedipan secara terus-menerus */
+}
+
+/* #scroll-container {
+  overflow: hidden;
+}
+
+<div id="scroll-container" style="margin-top: 5px; color: #fff">
+                <div id="countDown"><%= countdownStr %></div>
+              </div>
+#countDown {
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  -moz-animation: my-animation 15s linear infinite;
+  -webkit-animation: my-animation 15s linear infinite;
+  animation: my-animation 15s linear infinite;
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+}
+
+@-moz-keyframes my-animation {
+  from {
+    -moz-transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes my-animation {
+  from {
+    -webkit-transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+} */
